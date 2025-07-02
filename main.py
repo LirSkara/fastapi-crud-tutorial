@@ -14,13 +14,15 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# Настройка CORS для работы с веб-интерфейсом
+# Настройка CORS для работы с веб-интерфейсом и удаленными клиентами
+# Разрешает подключение с любых источников (origins), 
+# что необходимо для работы с удаленными клиентами
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],  # Разрешить все источники
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["*"],  # Разрешить все HTTP методы
+    allow_headers=["*"],  # Разрешить все заголовки
 )
 
 # Подключение статических файлов
