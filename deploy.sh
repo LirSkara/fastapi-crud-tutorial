@@ -137,7 +137,7 @@ chmod 600 /etc/netplan/99-wifi-ap.yaml
 cat > /etc/hostapd/hostapd.conf << 'EOF'
 interface=wlan0
 driver=nl80211
-ssid=RPBPi-AP
+ssid=RBPi
 hw_mode=g
 channel=7
 max_num_sta=10
@@ -293,8 +293,8 @@ echo "   🌍 Ethernet IP: ${ETH_IP:-не подключен}"
 echo "   📡 Wi-Fi AP IP: ${WIFI_IP:-192.168.4.1}"
 echo ""
 echo "📱 Wi-Fi точка доступа:"
-echo "   📡 Название сети: RaspberryPi-AP"
-echo "   🔑 Пароль: raspberry123"
+echo "   📡 Название сети: RBPi"
+echo "   🔑 Пароль: 11223344"
 echo "   🌐 IP диапазон: 192.168.4.10-192.168.4.50"
 echo ""
 echo "🚀 FastAPI доступен по адресам:"
@@ -310,8 +310,8 @@ echo "   sudo systemctl status/start/stop/restart fastapi-tutorial"
 echo "   sudo systemctl status/start/stop/restart wifi-ap"
 echo ""
 echo "📱 Для подключения с планшета:"
-echo "   1. Найдите сеть 'RaspberryPi-AP'"
-echo "   2. Введите пароль 'raspberry123'"
+echo "   1. Найдите сеть 'RBPi'"
+echo "   2. Введите пароль '11223344'"
 echo "   3. Откройте http://192.168.4.1:8000"
 echo ""
 print_status "Система готова к работе!"
