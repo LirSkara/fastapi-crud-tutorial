@@ -137,12 +137,12 @@ chmod 600 /etc/netplan/99-wifi-ap.yaml
 cat > /etc/hostapd/hostapd.conf << 'EOF'
 interface=wlan0
 driver=nl80211
-ssid=RaspberryPi-AP
+ssid=RPBPi-AP
 hw_mode=g
 channel=7
 max_num_sta=10
 wpa=2
-wpa_passphrase=raspberry123
+wpa_passphrase=11223344
 wpa_key_mgmt=WPA-PSK
 wpa_pairwise=TKIP
 rsn_pairwise=CCMP
