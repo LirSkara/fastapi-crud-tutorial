@@ -9,7 +9,7 @@
 cd /Users/lirskara/Desktop/sastapitest
 git init
 git add .
-git commit -m "Initial commit"
+git commit -m "🚀 Учебный проект: простой CRUD API на FastAPI"
 git remote add origin https://github.com/YOUR_USERNAME/REPO_NAME.git
 git push -u origin main
 ```
