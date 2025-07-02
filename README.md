@@ -105,35 +105,7 @@ curl -X DELETE "http://127.0.0.1:8000/users/1"
 - SSH доступ к Pi
 - Интернет соединение на Pi
 
-### Шаг 1: Подготовка GitHub репозитория
-
-1. **Создайте репозиторий на GitHub:**
-   - Перейдите на https://github.com
-   - Нажмите "New repository"
-   - Назовите репозиторий (например, `fastapi-crud-tutorial`)
-   - Сделайте его публичным для простоты
-
-2. **Загрузите проект в GitHub:**
-```bash
-# Инициализируйте git в папке проекта
-cd /Users/lirskara/Desktop/sastapitest
-git init
-
-# Добавьте все файлы
-git add .
-
-# Сделайте первый коммит
-git commit -m "Initial commit: FastAPI CRUD tutorial project"
-
-# Добавьте удаленный репозиторий (замените YOUR_USERNAME и REPO_NAME)
-git remote add origin https://github.com/YOUR_USERNAME/REPO_NAME.git
-
-# Загрузите в GitHub
-git branch -M main
-git push -u origin main
-```
-
-### Шаг 2: Подключение к Raspberry Pi
+### Шаг 1: Подключение к Raspberry Pi
 
 ```bash
 # Подключитесь по SSH (замените IP_ADDRESS на IP вашего Pi)
@@ -143,7 +115,7 @@ ssh ubuntu@IP_ADDRESS
 ssh ubuntu@raspberrypi.local
 ```
 
-### Шаг 3: Установка зависимостей на Raspberry Pi
+### Шаг 2: Установка зависимостей на Raspberry Pi
 
 ```bash
 # Обновите систему
@@ -156,7 +128,7 @@ sudo apt install python3 python3-pip python3-venv git -y
 sudo apt install python3-dev build-essential -y
 ```
 
-### Шаг 4: Клонирование и запуск проекта
+### Шаг 3: Клонирование и запуск проекта
 
 ```bash
 # Клонируйте репозиторий (замените URL на ваш)
@@ -173,7 +145,7 @@ chmod +x install.sh start.sh
 ./start.sh
 ```
 
-### Шаг 5: Настройка доступа по сети
+### Шаг 4: Настройка доступа по сети
 
 По умолчанию сервер будет доступен только локально. Для доступа с других устройств:
 
@@ -195,7 +167,7 @@ uvicorn main:app --host 0.0.0.0 --port 8000 --reload
    - `http://IP_АДРЕС_PI:8000/static/index.html`
    - `http://IP_АДРЕС_PI:8000/docs`
 
-### Шаг 6: Настройка автозапуска (systemd)
+### Шаг 5: Настройка автозапуска (systemd)
 
 Создайте systemd сервис для автоматического запуска:
 
@@ -237,7 +209,7 @@ sudo systemctl start fastapi-tutorial
 sudo systemctl status fastapi-tutorial
 ```
 
-### Шаг 7: Настройка брандмауэра (опционально)
+### Шаг 6: Настройка брандмауэра (опционально)
 
 ```bash
 # Установите ufw если не установлен
@@ -271,7 +243,7 @@ git pull origin main
 sudo systemctl restart fastapi-tutorial
 ```
 
-## Что изучают студенты
+## Что изучается
 
 1. **Создание API** с помощью FastAPI
 2. **CRUD операции** (Create, Read, Update, Delete)
