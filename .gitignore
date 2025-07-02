@@ -1,0 +1,44 @@
+# .gitignore для FastAPI проекта
+
+# Виртуальное окружение
+venv/
+env/
+ENV/
+
+# База данных SQLite
+*.db
+*.sqlite3
+
+# Python кэш
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Логи
+*.log
+
+# Конфигурационные файлы IDE
+.vscode/settings.json
+.idea/
+
+# Системные файлы macOS
+.DS_Store
+
+# Системные файлы Windows
+Thumbs.db
+ehthumbs.db
+
+# Временные файлы
+*.tmp
+*.temp
+
+# Файлы окружения (если будут добавлены)
+.env
+.env.local
+
+# Папка для загрузок (если будет добавлена)
+uploads/
+
+# Документация (если генерируется)
+docs/_build/
