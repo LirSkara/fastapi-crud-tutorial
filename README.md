@@ -108,12 +108,8 @@ curl -X DELETE "http://127.0.0.1:8000/users/1"
 ### Шаг 1: Подключение к Raspberry Pi
 
 ```bash
-# Подключитесь по SSH (замените IP_ADDRESS на IP вашего Pi)
-ssh ubuntu@IP_ADDRESS
-
-# Или используйте имя хоста, если настроено
-ssh ubuntu@raspberrypi.local
-```
+# Подключитесь по SSH (замените USER и IP_ADDRESS на Пользователя и IP вашего Pi)
+ssh USER@IP_ADDRESS
 
 ### Шаг 2: Установка зависимостей на Raspberry Pi
 
@@ -132,8 +128,8 @@ sudo apt install python3-dev build-essential -y
 
 ```bash
 # Клонируйте репозиторий (замените URL на ваш)
-git clone https://github.com/YOUR_USERNAME/REPO_NAME.git
-cd REPO_NAME
+git clone https://github.com/LirSkara/fastapi-crud-tutorial.git
+cd fastapi-crud-tutorial
 
 # Сделайте скрипты исполняемыми
 chmod +x install.sh start.sh
