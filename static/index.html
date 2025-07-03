@@ -89,8 +89,9 @@
         
         <div class="section">
             <h3>📊 Информация о подключении</h3>
-            <p><strong>API URL:</strong> <span id="api-url">Загружается...</span></p>
-            <p><strong>Ваш IP:</strong> <span id="client-ip">Определяется...</span></p>
+            <p><strong>API URL:</strong> <span id="api-url">192.168.4.1:8000 (фиксированный)</span></p>
+            <p><strong>Статус:</strong> <span id="connection-status">Проверяется...</span></p>
+            <p><em>💡 Работает даже при отключении интернета</em></p>
             <button onclick="checkHealth()">🔍 Проверить подключение</button>
             <div id="health-result" class="result"></div>
         </div>
@@ -139,9 +140,9 @@
     </div>
 
     <script>
-        // Автоматическое определение API базового URL
-        // Использует текущий хост (работает с любым IP адресом)
-        const API_BASE = `${window.location.protocol}//${window.location.hostname}:8000`;
+        // API базовый URL - фиксированный адрес Wi-Fi точки доступа
+        // Работает даже при отключении интернета/роутера
+        const API_BASE = 'http://192.168.4.1:8000';
 
         function showResult(elementId, data, isError = false) {
             const element = document.getElementById(elementId);
@@ -177,7 +178,20 @@
         }
 
         async function checkHealth() {
+            const statusElement = document.getElementById('connection-status');
+            statusElement.textContent = 'Проверяется...';
+            statusElement.style.color = '#007bff';
+            
             const result = await makeRequest(`${API_BASE}/health`);
+            
+            if (result.ok) {
+                statusElement.textContent = '✅ Подключен';
+                statusElement.style.color = '#28a745';
+            } else {
+                statusElement.textContent = '❌ Не подключен';
+                statusElement.style.color = '#dc3545';
+            }
+            
             showResult('health-result', result.data || result.error, !result.ok);
         }
 
@@ -318,16 +332,9 @@
 
         // Инициализация при загрузке страницы
         window.onload = () => {
-            // Показываем текущий API URL
-            document.getElementById('api-url').textContent = API_BASE;
-            
-            // Показываем IP клиента (приблизительно)
-            const clientInfo = `${window.location.hostname} (подключен через: ${window.location.host})`;
-            document.getElementById('client-ip').textContent = clientInfo;
-            
             console.log('🌐 API Base URL:', API_BASE);
-            console.log('📱 Client info:', clientInfo);
-            console.log('🔗 Current URL:', window.location.href);
+            console.log('📱 Подключение через Wi-Fi точку доступа Raspberry Pi');
+            console.log('� Работает автономно, без интернета');
             
             // Автоматически проверяем состояние и загружаем пользователей
             checkHealth();
